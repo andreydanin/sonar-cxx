@@ -270,6 +270,7 @@ public class CxxSquidSensor implements ProjectSensor {
     descriptor
       .name("CXX")
       .onlyOnLanguage("cxx")
+      .createIssuesForRuleRepository(getRuleRepositoryKey())
       .onlyOnFileType(InputFile.Type.MAIN);
   }
 
@@ -522,4 +523,7 @@ public class CxxSquidSensor implements ProjectSensor {
       .save();
   }
 
+  protected String getRuleRepositoryKey() {
+      return CxxRuleRepository.KEY;
+  }
 }

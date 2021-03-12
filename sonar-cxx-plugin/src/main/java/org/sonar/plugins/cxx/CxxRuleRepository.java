@@ -26,10 +26,11 @@ import org.sonar.cxx.squidbridge.annotations.AnnotationBasedRulesDefinition;
 public class CxxRuleRepository implements RulesDefinition {
 
   private static final String REPOSITORY_NAME = "SonarQube";
+  protected static final String KEY = "cxx";
 
   @Override
   public void define(Context context) {
-    var repository = context.createRepository("cxx", CxxLanguage.KEY).
+    var repository = context.createRepository(KEY, CxxLanguage.KEY).
       setName(REPOSITORY_NAME);
     new AnnotationBasedRulesDefinition(repository, CxxLanguage.KEY).addRuleClasses(false, CheckList.getChecks());
     repository.done();
